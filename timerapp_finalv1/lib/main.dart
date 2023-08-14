@@ -66,6 +66,43 @@ class _HomeState extends State<Home> {
     });
   }
 
-  
-
-
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Timer app",
+          style: TextStyle(
+            fontSize: 30,
+          ),
+        ),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            TextField(
+              onChanged: (val) {
+                setState(() {
+                  iCount = int.parse(val);
+                });
+              },
+              enabled: !isRunning,
+              textAlign: TextAlign.center,
+              decoration: const InputDecoration(
+                hintText: 'Seconds',
+                hintStyle: TextStyle(
+                  fontSize: 20.0,
+                ),
+                  prefix: Padding(
+                    padding: EdgeInsets.all(4),
+                    child: Text(''),
+                ),
+              ),
+              maxLength: 6,
+              keyboardType: TextInputType.number,
+            ),
+            
+              

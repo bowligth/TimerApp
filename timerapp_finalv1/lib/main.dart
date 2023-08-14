@@ -37,6 +37,35 @@ class _HomeState extends State<Home> {
   bool isRunning = false;
 
   startTimer() {
-    
+    timer = Timer.periodic(const Duration(seconds: 2), (timer) {
+      if (count > 0) {
+        setState(() {
+          count--;
+        });
+      } else {
+        timer.cancel();
+        setState(() {
+          isRunning = false;
+        });
+      }
+    });
   }
-}
+
+  stopTimer() {
+    timer?.cancel();
+    setState(() {
+      isRunning = false;
+    });
+  }
+
+  resetTimer () {
+    timer?.cancel();
+    setState(() {
+      count = iCount;
+      isRunning = false;
+    });
+  }
+
+  
+
+
